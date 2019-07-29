@@ -22,8 +22,7 @@ export default class RoomLocation extends Component {
         // let macTest = '02:15:b2:00:01:00'; //emulator
         wifi.loadWifiList((wifiStringList) => {
             let wifiArray = JSON.parse(wifiStringList);
-            // console.warn(wifiArray);
-            let wifiData = wifiArray.filter(wifi => wifi.BSSID === room.MAC.toLowerCase());
+            let wifiData = wifiArray.filter(wifi => wifi.BSSID === room.macAddress.toLowerCase());
             // let wifiData = wifiArray.filter(wifi => wifi.BSSID === macTest);
             if (wifiData.length > 0) {
                 this.setState({ wifiStrength: wifiData[0].level });

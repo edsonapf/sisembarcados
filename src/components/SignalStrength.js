@@ -11,16 +11,16 @@ const getSignalImg = (strength) => {
         img: terribleSignalImg,
         txt: 'Você está muito distante do local.'
     };
-    if(strength >= -30 && strength != null) {
+    if(strength >= -40 && strength != null) {
         imgTxt.img = excellentSignalImg;
         imgTxt.txt = 'Você está muito próximo do local.';
-    } else if(strength < -30 && strength >= -50) {
+    } else if(strength < -40 && strength >= -60) {
         imgTxt.img = goodSignalImg;
         imgTxt.txt = 'Você está próximo do local.';
-    } else if(strength < -50 && strength >= -70) {
+    } else if(strength < -60 && strength >= -80) {
         imgTxt.img = fairSignalImg;
         imgTxt.txt = 'Você está em uma distância razoável do local.';
-    } else if(strength < -70 && strength >= -90) {
+    } else if(strength < -80 && strength >= -90) {
         imgTxt.img = weakSignalImg;
         imgTxt.txt = 'Você está distante do local.'
     }
@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
         width: 350, 
         height: 250,
         resizeMode: 'stretch',
-        marginBottom: 40,
+        marginTop: 10,
+        marginBottom: 20,
     },
     text: {
         fontSize: 25,

@@ -18,12 +18,14 @@ export default class RoomLocation extends Component {
 
     getMac = () => {
         let { room } = this.props.navigation.state.params;
+        // let macTest = '06:d6:aa:fc:7a:db'; // Samsung
         // let macTest = '54:2f:8a:37:e0:18';
         // let macTest = '02:15:b2:00:01:00'; //emulator
-        wifi.loadWifiList((wifiStringList) => {
+        wifi.reScanAndLoadWifiList((wifiStringList) => {
             let wifiArray = JSON.parse(wifiStringList);
             let wifiData = wifiArray.filter(wifi => wifi.BSSID === room.macAddress.toLowerCase());
             // let wifiData = wifiArray.filter(wifi => wifi.BSSID === macTest);
+            // console.warn(wifiArray);
             if (wifiData.length > 0) {
                 this.setState({ wifiStrength: wifiData[0].level });
             } else {
@@ -54,8 +56,8 @@ export default class RoomLocation extends Component {
                 <Text style={styles.roomNameText}>
                     {room.name}
                 </Text>
-                {/* { this.state.wifiStrength && 
-                    <Text>Intensidade: {this.state.wifiStrength}</Text> } */}
+                { this.state.wifiStrength && 
+                    <Text>Intensidade: {this.state.wifiStrength}</Text> }
                 <SignalStrength
                     strength={this.state.wifiStrength}
                 />

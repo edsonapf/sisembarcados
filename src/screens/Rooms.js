@@ -9,8 +9,14 @@ import {
   ActivityIndicator
 } from 'react-native';
 import { axiosInstance as axios } from '../helpers/request';
+// import axios from 'axios';
 import { ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+
+// const IP = '10.204.241.180';
+// const IP = '192.168.15.9';
+// const URL = `http://${IP}`;
+// const PORT = '3000';
 
 export default class Rooms extends Component {
   

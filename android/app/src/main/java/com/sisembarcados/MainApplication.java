@@ -3,6 +3,8 @@ package com.sisembarcados;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNReactNativeABeepPackage;
+import com.zmxv.RNSound.RNSoundPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.devstepbcn.wifi.AndroidWifiPackage;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNReactNativeABeepPackage(),
+            new RNSoundPackage(),
             new RNGestureHandlerPackage(),
             new VectorIconsPackage(),
             new AndroidWifiPackage()

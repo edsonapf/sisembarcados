@@ -9,14 +9,8 @@ import {
   ActivityIndicator
 } from 'react-native';
 import { axiosInstance as axios } from '../helpers/request';
-// import axios from 'axios';
 import { ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-
-// const IP = '10.204.241.180';
-// const IP = '192.168.15.9';
-// const URL = `http://${IP}`;
-// const PORT = '3000';
 
 export default class Rooms extends Component {
   
@@ -39,7 +33,8 @@ export default class Rooms extends Component {
   getRoomList = async () => {
     try {
       const res = await axios.get('/');
-      this.setState({ roomList: res.data });
+      //console.warn(res);
+      this.setState({ roomList: res.data.Room });
     } catch(e) {
       Alert.alert('Não foi encontrada nenhuma sala');
       this.setState({ roomList: null });
@@ -89,7 +84,7 @@ export default class Rooms extends Component {
                     leftIcon={<Icon name="door-closed" size={30} />}
                     containerStyle={styles.item}
                     key={i} 
-                    title={item.name}
+                    title={item.roomName}
                     titleStyle={styles.itemText}
                     onPress={() => this.props.navigation.navigate('RoomLocation', 
                                             {room: item})}
@@ -105,6 +100,8 @@ export default class Rooms extends Component {
   }
 }
 
+
+// Cor de fundo = '#005089'
 const styles = StyleSheet.create({
   container: {
     flex: 1,

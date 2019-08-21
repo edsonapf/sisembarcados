@@ -22,7 +22,7 @@ const getSignalImg = (strength) => {
         imgTxt.txt = 'Você está em uma distância razoável do local.';
     } else if(strength < -80 && strength >= -90) {
         imgTxt.img = weakSignalImg;
-        imgTxt.txt = 'Você está distante do local.'
+        imgTxt.txt = 'Você está distante do local.';
     }
 
     return imgTxt;
